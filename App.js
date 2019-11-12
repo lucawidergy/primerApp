@@ -27,6 +27,7 @@ import {
 } from 'react-native/Libraries/NewAppScreen';
 
 import Imagen from './src/Image/imagenG.jpg';
+import wololo from './src/Image/wololo.jpg';
 import MyButton from './src/Button';
 
 class App extends Component {
@@ -41,19 +42,22 @@ class App extends Component {
       <Fragment>
         <StatusBar barStyle="dark-content" />
         <SafeAreaView style={{flex: 1,  justifyContent: 'center'}}>
-          <View
+        <View style={{flex:1, alignItems: 'center'}}>
+            <Text style={{fontSize: 20,textAlign: ''}}> 'wololoo' </Text>
+            <Image style={{width: 300, height: 200, alignSelf: 'center' }} source={wololo} />
+         </View>
+         <View
             style={{
+              flex:2,
               backgroundColor: 'white',
               justifyContent: 'center',
               flexDirection: 'row',
               alignItems: 'center',
             }}>
-            <MyButton onPress={this.handleOnPress}>
-
-            </MyButton>
+            <MyButton onPress={this.handleOnPress}>s </MyButton>
          </View>
-         <View>
-         {this.state.isVisible && (<Image style={{width: 500, height: 500, alignSelf: 'center' }} source={Imagen} />)}
+         <View style={{flex:3}}>
+         {this.state.isVisible && (<Image style={{width: 300, height: 300, alignSelf: 'center' }} source={Imagen} />)}
          </View>
         </SafeAreaView>
       </Fragment>
