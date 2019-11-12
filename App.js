@@ -42,7 +42,7 @@ class App extends Component {
       <Fragment>
         <StatusBar barStyle="dark-content" />
         <SafeAreaView style={{flex: 1,  justifyContent: 'center'}}>
-        <View style={{flex:1, alignItems: 'center'}}>
+        <View style={{flex: 1, alignItems: 'center'}}>
             <Text style={{fontSize: 20,textAlign: ''}}> 'wololoo' </Text>
             <Image style={{width: 300, height: 200, alignSelf: 'center' }} source={wololo} />
          </View>
@@ -56,7 +56,7 @@ class App extends Component {
             }}>
             <MyButton onPress={this.handleOnPress}>s </MyButton>
          </View>
-         <View style={{flex:3}}>
+         <View style={{flex: 3}}>
          {this.state.isVisible && (<Image style={{width: 300, height: 300, alignSelf: 'center' }} source={Imagen} />)}
          </View>
         </SafeAreaView>
