@@ -2,9 +2,9 @@ import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
   buttonR: {
-    borderRadius: 13,
+    borderRadius: 35,
     borderWidth: 3,
-    height: 30,
+    height: 70,
     width:70,
     justifyContent: 'center',
     alignContent: 'center',
@@ -13,5 +13,5 @@ export const styles = StyleSheet.create({
   buttonText:{
     fontSize: 20,
     textAlign: 'center'
-  }
+  }  
 });

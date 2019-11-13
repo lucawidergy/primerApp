@@ -16,6 +16,9 @@ import {
   StatusBar,
   Button,
   Image,
+  ImageBackground,
+  KeyboardAvoidingView,
+  Picker,
 } from 'react-native';
 
 import {
@@ -26,82 +29,50 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
-import Imagen from './src/Image/imagenG.jpg';
-import wololo from './src/Image/wololo.jpg';
+import imagenBackground from './src/Image/background.jpg';
+import imageBanner from './src/Image/fon2.jpg';
 import MyButton from './src/Button';
-
+import Imagen from './src/Image/imagenG.jpg';
+import buttonR from './src/Button/styles'
 class App extends Component {
   state = {
     isVisible: false,
+    contador: 0,
   };
 
-  handleOnPress = () => this.setState(prevState => ({ isVisible: !prevState.isVisible }));
-
+  handleOnPress = () => this.setState(prevState => ({isVisible: !prevState.isVisible}));
+  handleOnPressContSuma = () => this.setState(prevState => ({contador: prevState.contador+1}));
+  handleOnPressContResta = () => this.setState(prevState => ({contador: prevState.contador-1}));
   render() {
+    let colorNumber= this.state.contador<0 ? 'red' : 'green';
     return (
+
       <Fragment>
         <StatusBar barStyle="dark-content" />
-        <SafeAreaView style={{flex: 1,  justifyContent: 'center'}}>
-        <View style={{flex: 1, alignItems: 'center'}}>
-            <Text style={{fontSize: 20,textAlign: ''}}> 'wololoo' </Text>
-            <Image style={{width: 300, height: 200, alignSelf: 'center' }} source={wololo} />
-         </View>
-         <View
-            style={{
-              flex:2,
-              backgroundColor: 'white',
-              justifyContent: 'center',
-              flexDirection: 'row',
-              alignItems: 'center',
-            }}>
-            <MyButton onPress={this.handleOnPress}>s </MyButton>
-         </View>
-         <View style={{flex: 3}}>
-         {this.state.isVisible && (<Image style={{width: 300, height: 300, alignSelf: 'center' }} source={Imagen} />)}
-         </View>
+        <SafeAreaView style={{flex: 1, justifyContent: 'center'}}>
+          <ImageBackground
+            source={imagenBackground}
+            style={{width: '100%', height: '100%'}}>
+            <ImageBackground
+              source={imageBanner}
+              style={{height:100,flexDirection:'row',alignItems:'center', justifyContent:'center',backgroundColor:'blue'}}
+              >
+              <Text style={{color: 'white', fontSize: 25}}>
+                Contador pedorro
+              </Text>
+            </ImageBackground>
+            <View style={{flex:1,width: '100%', height: '100%', backgroundColor:'yellow',flexDirection:'row-reverse',justifyContent:'space-around',alignItems:'center'}}>
+                  <MyButton onPress={this.handleOnPressContSuma} Text={'+1'}/>
+                  <MyButton onPress={this.handleOnPressContResta} Text={'-1'}/>
+            </View>
+            <View style={{flex:1,width: '100%', height: '100%', backgroundColor: colorNumber,alignItems:'center',justifyContent:'center'}}>
+            <Text style={{color: 'white', fontSize: 100}}>{this.state.contador}</Text>
+            </View>
+          </ImageBackground>
         </SafeAreaView>
       </Fragment>
     );
   }
 }
-
-const styles = StyleSheet.create({
-  scrollView: {
-    backgroundColor: Colors.lighter,
-  },
-  engine: {
-    position: 'absolute',
-    right: 0,
-  },
-  body: {
-    backgroundColor: Colors.white,
-  },
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-    color: Colors.black,
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-    color: Colors.dark,
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-  footer: {
-    color: Colors.dark,
-    fontSize: 12,
-    fontWeight: '600',
-    padding: 4,
-    paddingRight: 12,
-    textAlign: 'right',
-  },
-});
 
 export default App;
